@@ -61,3 +61,5 @@ gem 'devise'
 # Templating engine for HTML
 gem 'haml'
 
+# Multitenancy
+gem 'activerecord-multi-tenant'
