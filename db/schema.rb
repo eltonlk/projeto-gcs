@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_17_173700) do
+ActiveRecord::Schema.define(version: 2021_06_17_175258) do
 
   create_table "bank_accounts", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -18,6 +18,14 @@ ActiveRecord::Schema.define(version: 2021_06_17_173700) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_bank_accounts_on_user_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "name", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_tags_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -31,4 +39,5 @@ ActiveRecord::Schema.define(version: 2021_06_17_173700) do
   end
 
   add_foreign_key "bank_accounts", "users"
+  add_foreign_key "tags", "users"
 end

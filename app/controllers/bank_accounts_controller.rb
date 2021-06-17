@@ -1,5 +1,5 @@
 class BankAccountsController < TenantController
-  before_action :set_bank_account, only: %i[ show edit update destroy ]
+  before_action :set_bank_account, only: %i[ edit update destroy ]
 
   def index
     @bank_accounts = BankAccount.all
