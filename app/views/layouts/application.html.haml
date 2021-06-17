@@ -13,4 +13,6 @@
 
   %body
     = link_to "Sign Out", destroy_user_session_path, method: :delete
+    = link_to "Bank Accounts", bank_accounts_path
+
     = yield
