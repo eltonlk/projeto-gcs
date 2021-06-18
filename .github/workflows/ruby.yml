@@ -15,7 +15,6 @@ on:
 
 jobs:
   test:
-
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -31,13 +30,9 @@ jobs:
         bundler-cache: true
 
     - name: Set up Node
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v2
       with:
-        node-version: 14.16.1
-
-    - uses: borales/actions-yarn@v2.0.0
-      with:
-        cmd: install
+        node-version: '14'
 
     - name: Install dependencies
       run: yarn install
@@ -46,7 +41,7 @@ jobs:
       run: NODE_ENV=test bundle exec rails webpacker:compile
 
     - name: Run tests
-      run: bundle exec rake
+      run: bundle exec rake models
 
     - name: Run Code Analyzer
       run: bundle exec rubocop
