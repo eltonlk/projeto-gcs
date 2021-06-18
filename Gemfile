@@ -66,3 +66,6 @@ gem 'activerecord-multi-tenant'
 
 # Helper for create forms
 gem 'simple_form'
+
+# Responders to dry up your application
+gem "responders"

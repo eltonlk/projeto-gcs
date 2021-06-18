@@ -3,37 +3,36 @@ class TagsController < TenantController
 
   def index
     @tags = Tag.all
+
+    respond_with @tags
   end
 
   def new
     @tag = Tag.new
+
+    respond_with @tag
   end
 
   def edit
+    respond_with @tag
   end
 
   def create
-    @tag = Tag.new tag_params
+    @tag = Tag.create tag_params
 
-    if @tag.save
-      redirect_to tags_url, notice: "Tag was successfully created."
-    else
-      render :new, status: :unprocessable_entity
-    end
+    respond_with @tag, location: -> { tags_url }
   end
 
   def update
-    if @tag.update tag_params
-      redirect_to tags_url, notice: "Tag was successfully updated."
-    else
-      render :edit, status: :unprocessable_entity
-    end
+    @tag.update tag_params
+
+    respond_with @tag, location: -> { tags_url }
   end
 
   def destroy
     @tag.destroy
 
-    redirect_to tags_url, notice: "Tag was successfully destroyed."
+    respond_with @tag, location: -> { tags_url }
   end
 
   private

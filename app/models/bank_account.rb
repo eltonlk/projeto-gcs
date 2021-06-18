@@ -7,6 +7,8 @@ class BankAccount < ApplicationRecord
     if form.valid?
 
       self.destroy
+    else
+      self.errors.add :base, :invalid
     end
   end
 end

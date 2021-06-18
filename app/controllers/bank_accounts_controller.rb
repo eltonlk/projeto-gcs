@@ -3,45 +3,44 @@ class BankAccountsController < TenantController
 
   def index
     @bank_accounts = BankAccount.all
+
+    respond_with @bank_accounts
   end
 
   def new
     @bank_account = BankAccount.new
+
+    respond_with @bank_account
   end
 
   def edit
+    respond_with @bank_account
   end
 
   def create
-    @bank_account = BankAccount.new bank_account_params
+    @bank_account = BankAccount.create bank_account_params
 
-    if @bank_account.save
-      redirect_to bank_accounts_url, notice: "Bank account was successfully created."
-    else
-      render :new, status: :unprocessable_entity
-    end
+    respond_with @bank_account, location: -> { bank_accounts_url }
   end
 
   def update
-    if @bank_account.update bank_account_params
-      redirect_to bank_accounts_url, notice: "Bank account was successfully updated."
-    else
-      render :edit, status: :unprocessable_entity
-    end
+    @bank_account.update bank_account_params
+
+    respond_with @bank_account, location: -> { bank_accounts_url }
   end
 
   def delete
     @bank_account_delete_form = BankAccountDeleteForm.new
+
+    respond_with @bank_account
   end
 
   def destroy
     @bank_account_delete_form = BankAccountDeleteForm.new bank_account_delete_params
 
-    if @bank_account.destroy_and_replace! @bank_account_delete_form
-      redirect_to bank_accounts_url, notice: "Bank account was successfully destroyed."
-    else
-      render :delete, status: :unprocessable_entity
-    end
+    @bank_account.destroy_and_replace! @bank_account_delete_form
+
+    respond_with @bank_account, action: :delete, location: -> { bank_accounts_url }
   end
 
   private
