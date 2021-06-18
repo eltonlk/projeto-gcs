@@ -70,5 +70,10 @@ gem 'simple_form'
 # Responders to dry up your application
 gem 'responders'
 
-# Code Analyzer
-gem 'rubocop', require: false
+group :development, :test do
+  # Security Vulnerabilities
+  gem 'brakeman'
+
+  # Code Analyzer
+  gem 'rubocop', require: false
+end
