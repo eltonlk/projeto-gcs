@@ -14,10 +14,7 @@
   %body
     = render 'app/menu'
 
-    .container
-      - if flash[:notice].present?
-        .alert.alert-success.alert-dismissible.fade.show{ role: "alert" }
-          = notice
-          = button_tag '', class: "btn-close", data: { 'bs-dismiss': "alert" }, aria: { label: "Close" }
+    = render 'shared/flash_notice'
 
+    .container
       = yield

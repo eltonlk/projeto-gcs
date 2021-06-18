@@ -11,14 +11,16 @@ pt-BR:
     error_notification:
       default_message: "Por favor, reveja os problemas abaixo:"
     # Examples
-    # labels:
-    #   defaults:
-    #     password: 'Password'
-    #   user:
-    #     new:
-    #       email: 'E-mail to sign in.'
-    #     edit:
-    #       email: 'E-mail.'
+    labels:
+      # defaults:
+      #   password: 'Password'
+      user:
+        new:
+          email: 'E-mail'
+          password: 'Senha'
+          remember_me: Continuar conectado
+        # edit:
+        #   email: 'E-mail.'
     hints:
       user:
         current_password: Precisamos de sua senha atual para confirmar suas alterações

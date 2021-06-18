@@ -7,5 +7,20 @@ import 'bootstrap/js/src/dropdown'
 // import 'bootstrap/js/src/popover'
 import 'bootstrap/js/src/scrollspy'
 // import 'bootstrap/js/src/tab'
-// import 'bootstrap/js/src/toast'
+import 'bootstrap/js/src/toast'
 // import 'bootstrap/js/src/tooltip'
+
+
+import Toast from 'bootstrap/js/dist/toast'
+
+window.Toast = Toast
+
+document.addEventListener("DOMContentLoaded", function() {
+  let toastElList = [].slice.call(document.querySelectorAll('.toast'))
+
+  toastElList.map(function (toastEl) {
+    let toast = new Toast(toastEl)
+
+    toast.show()
+  })
+})

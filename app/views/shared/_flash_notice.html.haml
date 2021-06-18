@@ -1,0 +1,9 @@
+- if flash[:notice].present?
+  .position-relative{ aria: { live: "polite", atomic: "true" } }
+    .toast-container.position-absolute.top-0.end-0.px-3
+      .toast.align-items-center.text-white.bg-success.border-0{ role: "alert", aria: { live: "assertive", atomic: true }, data: { 'bs-delay': 10000 } }
+        .d-flex
+          .toast-body
+            = notice
+
+          = button_tag '', class: "btn-close btn-close-white me-2 m-auto", data: { 'bs-dismiss': "toast" }, aria: { label: "Close" }
