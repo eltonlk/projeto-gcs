@@ -3,6 +3,8 @@ class BankAccount < ApplicationRecord
 
   validates :name, presence: true, uniqueness: true
 
+  default_scope -> { order(:name) }
+
   def destroy_and_replace! form
     if form.valid?
 
