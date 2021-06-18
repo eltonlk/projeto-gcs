@@ -1,0 +1,8 @@
+pt-BR:
+  helpers:
+    select:
+      prompt: Por favor selecione
+    submit:
+      create: Adicionar
+      submit: Gravar
+      update: Alterar

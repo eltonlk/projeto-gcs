@@ -1,0 +1,21 @@
+pt-BR:
+  time:
+    am: ''
+    formats:
+      calendar:
+        hour: ! '%Hh'
+        hour_and_minute: ! '%Hh%M'
+      default: "%d/%m/%Y %H:%M"
+      default_with_seconds: "%d/%m/%Y %H:%M:%S"
+      except_year: "%d/%m %H:%M"
+      long: "%d de %B de %Y, %H:%M"
+      short: "%H:%M"
+      localized:
+      - '%d-%m-%Y %H:%M'
+      - '%d/%m/%Y %H:%M'
+      - '%d-%m-%Y'
+      - '%d/%m/%Y'
+      - '%H:%M:%S'
+      - '%H:%M'
+      - '%H'
+    pm: ''

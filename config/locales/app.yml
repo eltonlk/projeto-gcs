@@ -1,0 +1,11 @@
+pt-BR:
+  app:
+    menu:
+      bank_accounts: Contas Correntes
+      dashboard: Resumo
+      edit_user: Meus Dados
+      sign_out: Sair
+      tags: Tags
+
+    name: Financeiro
+    title: Gestor Financeiro

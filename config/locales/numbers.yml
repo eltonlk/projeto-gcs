@@ -1,0 +1,8 @@
+pt-BR:
+  numbers:
+    currency:
+      one: real
+      other: reais
+    cents:
+      one: centavo
+      other: centavos

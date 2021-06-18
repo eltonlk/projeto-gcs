@@ -1,0 +1,71 @@
+pt-BR:
+  date:
+    abbr_day_names:
+    - Dom
+    - Seg
+    - Ter
+    - Qua
+    - Qui
+    - Sex
+    - Sáb
+    abbr_month_names:
+    -
+    - Jan
+    - Fev
+    - Mar
+    - Abr
+    - Mai
+    - Jun
+    - Jul
+    - Ago
+    - Set
+    - Out
+    - Nov
+    - Dez
+    day_names:
+    - Domingo
+    - Segunda
+    - Terça
+    - Quarta
+    - Quinta
+    - Sexta
+    - Sábado
+    formats:
+      day: "%d - %A"
+      default: "%d/%m/%Y"
+      default_month: "%d/%B/%y"
+      except_year: "%d/%m"
+      long: "%d de %B de %Y"
+      long_day: "%A, dia %d"
+      month: "%B/%Y"
+      month_year: "%m/%Y"
+      only_day: "%d"
+      only_month: "%B"
+      short: "%d de %B"
+      small: "%m/%y"
+      year: "%Y"
+      localized:
+      - '%d/%m/%Y'
+      - '%d-%m-%Y'
+      - '%d/%m/%y'
+      - '%d-%m-%y'
+      - '%d/%m'
+      - '%d-%m'
+    month_names:
+    -
+    - Janeiro
+    - Fevereiro
+    - Março
+    - Abril
+    - Maio
+    - Junho
+    - Julho
+    - Agosto
+    - Setembro
+    - Outubro
+    - Novembro
+    - Dezembro
+    order:
+    - :day
+    - :month
+    - :year
