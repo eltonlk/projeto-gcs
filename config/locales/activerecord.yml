@@ -1,8 +1,31 @@
 pt-BR:
   activerecord:
+    attributes:
+      bank_account:
+        name: Nome
+      tag:
+        name: Nome
+      user:
+        email: E-mail
+        name: Nome
+        password: Senha
+
+
     errors:
       messages:
         record_invalid: 'A validação falhou: %{errors}'
         restrict_dependent_destroy:
           has_one: Não é possível excluir o registro pois existe um %{record} dependente
           has_many: Não é possível excluir o registro pois existem %{record} dependentes
+
+
+    models:
+      bank_account:
+        one: Conta Corrente
+        other: Contas Corrente
+      tag:
+        one: Tag
+        other: Tags
+      user:
+        one: Usuário
+        other: Usuários
