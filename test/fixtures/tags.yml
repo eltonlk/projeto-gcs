@@ -2,8 +2,8 @@
 
 one:
   user: one
-  name: MyString
+  name: Tag 1
 
 two:
   user: two
-  name: MyString
+  name: Tag 2

@@ -1,7 +1,11 @@
 require "test_helper"
 
 class TagsControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
+
   setup do
+    sign_in users(:one)
+
     @tag = tags(:one)
   end
 
@@ -17,15 +21,10 @@ class TagsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create tag" do
     assert_difference('Tag.count') do
-      post tags_url, params: { tag: { name: @tag.name, user_id: @tag.user_id } }
+      post tags_url, params: { tag: { name: 'Other tag' } }
     end
 
-    assert_redirected_to tag_url(Tag.last)
-  end
-
-  test "should show tag" do
-    get tag_url(@tag)
-    assert_response :success
+    assert_redirected_to tags_url
   end
 
   test "should get edit" do
@@ -34,8 +33,9 @@ class TagsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update tag" do
-    patch tag_url(@tag), params: { tag: { name: @tag.name, user_id: @tag.user_id } }
-    assert_redirected_to tag_url(@tag)
+    patch tag_url(@tag), params: { tag: { name: @tag.name } }
+
+    assert_redirected_to tags_url
   end
 
   test "should destroy tag" do
