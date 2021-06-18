@@ -1,24 +1,15 @@
-# README
+# Projeto Final da cadeira "GERÊNCIA DE CONFIGURAÇÃO DE SOFTWARE"
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Gestor Financeiro
 
-Things you may want to cover:
+## Run application
 
-* Ruby version
+    rails s
 
-* System dependencies
+## Run test
 
-* Configuration
+    rake test
 
-* Database creation
+## Code Analyzer
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+    rubocop

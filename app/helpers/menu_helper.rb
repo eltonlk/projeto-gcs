@@ -28,7 +28,7 @@ module MenuHelper
 
   def menu_nav_item_dropdown namespace, link_text, &block
     item_html = { class: 'nav-item dropdown' }
-    link_html = { class: 'nav-link dropdown-toggle', id: "#{namespace}Dropdown", role: "button", data: { 'bs-toggle': 'dropdown' }, aria: { expanded: false } }
+    link_html = { class: 'nav-link dropdown-toggle', id: "#{namespace}Dropdown", role: 'button', data: { 'bs-toggle': 'dropdown' }, aria: { expanded: false } }
 
     if menu_nav_item_active? namespace
       link_html[:class] << ' active'

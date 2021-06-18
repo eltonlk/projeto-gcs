@@ -5,9 +5,9 @@ module FormsHelper
       content = form_builder.button :submit
 
       if cancel_url.present?
-        content << " "
+        content << ' '
         content << t('text.or').downcase
-        content << " "
+        content << ' '
         content << link_to(t('text.cancel'), cancel_url, class: 'text-danger')
       end
 
