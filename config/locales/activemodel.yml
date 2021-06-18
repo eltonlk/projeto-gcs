@@ -1,0 +1,5 @@
+pt-BR:
+  activemodel:
+    attributes:
+      bank_account_delete_form:
+        replace_id: Substituir por

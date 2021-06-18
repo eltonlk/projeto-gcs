@@ -1,4 +1,8 @@
 pt-BR:
   tags:
+    edit:
+      title: Alterar Tag
     index:
       title: Tags
+    new:
+      title: Adicionar Tag

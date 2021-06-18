@@ -1,4 +1,10 @@
 pt-BR:
   bank_accounts:
+    delete:
+      title: Excluír e Substituir Conta Corrente
+    edit:
+      title: Alterar Conta Corrente
     index:
       title: Contas Correntes
+    new:
+      title: Adicionar Conta Corrente

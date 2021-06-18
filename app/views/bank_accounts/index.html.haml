@@ -1,0 +1,11 @@
+%h1= t '.title'
+
+= link_to 'New Bank Account', new_bank_account_path
+
+%table.table
+  %thead
+    %tr
+      %th= BankAccount.human_attribute_name :name
+      %th.table-actions
+
+  %tbody= render @bank_accounts

@@ -1,0 +1,7 @@
+%tr[bank_account]
+  %td= bank_account.name
+  %td.table-actions
+    = link_to_edit edit_bank_account_path(bank_account)
+
+    - if @bank_accounts.count > 1
+      = link_to_delete delete_bank_account_path(bank_account)

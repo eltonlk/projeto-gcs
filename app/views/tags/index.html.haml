@@ -1,0 +1,11 @@
+%h1= t '.title'
+
+= link_to 'New Tag', new_tag_path
+
+%table.table
+  %thead
+    %tr
+      %th= Tag.human_attribute_name :name
+      %th.table-actions
+
+  %tbody= render @tags

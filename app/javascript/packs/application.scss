@@ -1,2 +1,13 @@
 @import "~bootstrap/scss/bootstrap";
 
+.form-group {
+  margin-bottom: $spacer;
+}
+
+.form-actions {
+  margin-bottom: $spacer;
+}
+
+.table-actions {
+  text-align: right;
+}

@@ -1,0 +1,6 @@
+= simple_form_for bank_account do |f|
+  = f.error_notification
+
+  = f.input :name
+
+  = form_actions f, cancel_url: bank_accounts_path

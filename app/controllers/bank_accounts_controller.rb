@@ -1,5 +1,5 @@
 class BankAccountsController < TenantController
-  before_action :set_bank_account, only: %i[ edit update destroy ]
+  before_action :set_bank_account, only: %i[ edit update delete destroy ]
 
   def index
     @bank_accounts = BankAccount.all
@@ -30,10 +30,18 @@ class BankAccountsController < TenantController
     end
   end
 
-  def destroy
-    @bank_account.destroy
+  def delete
+    @bank_account_delete_form = BankAccountDeleteForm.new
+  end
 
-    redirect_to bank_accounts_url, notice: "Bank account was successfully destroyed."
+  def destroy
+    @bank_account_delete_form = BankAccountDeleteForm.new bank_account_delete_params
+
+    if @bank_account.destroy_and_replace! @bank_account_delete_form
+      redirect_to bank_accounts_url, notice: "Bank account was successfully destroyed."
+    else
+      render :delete, status: :unprocessable_entity
+    end
   end
 
   private
@@ -43,5 +51,9 @@ class BankAccountsController < TenantController
 
     def bank_account_params
       params.require(:bank_account).permit(:name)
+    end
+
+    def bank_account_delete_params
+      params.require(:bank_account_delete_form).permit(:replace_id)
     end
 end

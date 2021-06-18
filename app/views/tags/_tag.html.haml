@@ -1,0 +1,5 @@
+%tr[tag]
+  %td= tag.name
+  %td.table-actions
+    = link_to_edit edit_tag_path(tag)
+    = link_to_destroy tag_path(tag)

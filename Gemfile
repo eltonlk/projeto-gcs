@@ -63,3 +63,6 @@ gem 'haml'
 
 # Multitenancy
 gem 'activerecord-multi-tenant'
+
+# Helper for create forms
+gem 'simple_form'
