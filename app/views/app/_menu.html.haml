@@ -1,0 +1,31 @@
+- if user_signed_in?
+  %nav.navbar.navbar-expand-lg.navbar-light.bg-light
+    .container
+      = link_to t('app.name'), root_path, class: 'navbar-brand'
+
+      = button_tag class: 'navbar-toggler', data: { 'bs-toggle': 'collapse', 'bs-target': '#navbarSupportedContent' }, aria: { 'controls': 'navbarSupportedContent', expanded: false, label: 'Toggle navigation' } do
+        %span.navbar-toggler-icon
+
+      .collapse.navbar-collapse#navbarSupportedContent
+        %ul.navbar-nav.me-auto.mb-2.mb-lg-0
+          %li.nav-item
+            = link_to t('app.menu.dashboard'), root_path, class: 'nav-link'
+
+          %li.nav-item
+            = link_to t('app.menu.bank_accounts'), bank_accounts_path, class: 'nav-link'
+
+          %li.nav-item
+            = link_to t('app.menu.tags'), tags_path, class: 'nav-link'
+
+
+        %ul.navbar-nav.mb-2.mb-lg-0
+          %li.nav-item.dropdown
+            = link_to '#', class: 'nav-link dropdown-toggle', id: "navbarDropdown", role: "button", data: { 'bs-toggle': 'dropdown' }, aria: { expanded: false } do
+              = current_user.name
+
+            %ul.dropdown-menu.dropdown-menu-end{ aria: { labelledby: 'navbarDropdown' } }
+              %li
+                = link_to t('app.menu.edit_user'), edit_user_registration_path, class: 'dropdown-item'
+
+              %li
+                = link_to t('app.menu.sign_out'), destroy_user_session_path, method: :delete, class: 'dropdown-item'
