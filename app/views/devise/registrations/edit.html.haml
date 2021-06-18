@@ -1,44 +1,40 @@
-%h2 Edit #{resource_name.to_s.humanize}
+.card.mb-3
+  .card-header
+    %h6.my-1= t '.my_account'
 
-= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-  = render "shared/error_messages", resource: resource
+  .card-body
+    = simple_form_for resource, as: resource_name, url: registration_path(resource_name) do |f|
+      = f.error_notification
 
-  .field
-    = f.label :name
-    %br
-    = f.text_field :name, autofocus: true, autocomplete: false
+      .row
+        .col-lg-6
+          = f.input :name
 
-  .field
-    = f.label :email
-    %br
-    = f.email_field :email, autocomplete: "email"
+          = f.input :email
 
-  .field
-    = f.label :password
-    %i (leave blank if you don't want to change it)
-    %br
-    = f.password_field :password, autocomplete: "new-password"
-    - if @minimum_password_length
-      %br
-      %em #{@minimum_password_length} characters minimum
+          %hr.mt-5.mb-4
 
-  .field
-    = f.label :password_confirmation
-    %br
-    = f.password_field :password_confirmation, autocomplete: "new-password"
+          %h6= t '.password_leave_blank'
+          .row
+            .col-lg-6
+              = f.input :password
 
-  .field
-    = f.label :current_password
-    %i (we need your current password to confirm your changes)
-    %br
-    = f.password_field :current_password, autocomplete: "current-password"
+            .col-lg-6
+              = f.input :password_confirmation
+
+          %hr.mb-5
+
+          = f.input :current_password
+
+          = f.button :submit
 
 
-  .actions
-    = f.submit "Update"
 
-%h3 Cancel my account
+.card.bg-danger
+  .card-header.text-white
+    = t '.cancel_my_account'
 
-%p Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete}
+  .card-body.bg-white.text-center
+    %p= t '.cancel_message'
 
-= link_to "Back", :back
+    = button_to t('.cancel_my_account'), registration_path(resource_name), data: { confirm: t('text.confirm') }, method: :delete, class: 'btn btn-danger'

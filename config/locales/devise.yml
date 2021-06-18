@@ -36,6 +36,11 @@ pt-BR:
       updated_not_active: "Sua senha foi alterada com sucesso."
     registrations:
       destroyed: "Sua conta foi cancelada com sucesso. Esperamos vê-lo novamente em breve."
+      edit:
+        cancel_my_account: Cancelar Minha Conta
+        cancel_message: Depois de excluir a conta, não há como voltar atrás. Por favor, esteja certo.
+        password_leave_blank: Deixe em branco se não quiser mudar
+        my_account: Meus Dados
       signed_up: "Login efetuado com sucesso. Se não foi autorizado, a confirmação será enviada por e-mail."
       signed_up_but_inactive: "Você foi cadastrado com sucesso. No entanto, não foi possível efetuar login, pois sua conta não foi ativada."
       signed_up_but_locked: "Você foi cadastrado com sucesso. No entanto, não foi possível efetuar login, pois sua conta está bloqueada."

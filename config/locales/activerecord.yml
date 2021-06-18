@@ -6,9 +6,11 @@ pt-BR:
       tag:
         name: Nome
       user:
+        current_password: Senha Atual
         email: E-mail
         name: Nome
         password: Senha
+        password_confirmation: Confirme sua Senha
 
 
     errors:
