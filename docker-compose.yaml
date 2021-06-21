@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        ENVIRONMENT: ${ENVIRONMENT}
+        PORT: ${PORT}
+    container_name: project_gcs_web
+    volumes:
+      - web:/usr/src/app/
+    environment:
+      - DATABASE_HOST=db
+      - REDIS_HOST=redis
+    ports:
+      - ${EXPOSE_PORT}
+    stdin_open: true
+    tty: true
+
+volumes:
+  web:

@@ -33,6 +33,7 @@
 /config/master.key
 
 /public/packs
+/public/packs-staging
 /public/packs-test
 /node_modules
 /yarn-error.log
