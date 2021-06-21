@@ -30,6 +30,9 @@ ENV APP_ENV $ENVIRONMENT
 ENV RACK_ENV $ENVIRONMENT
 ENV RAILS_ENV $ENVIRONMENT
 
+ARG RAILS_MASTER_KEY
+ENV RAILS_MASTER_KEY $RAILS_MASTER_KEY
+
 # Install dependencies (Gems installation in local vendor directory)
 RUN gem install bundler
 RUN bundle config set deployment 'true'
