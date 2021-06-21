@@ -41,7 +41,7 @@ jobs:
       run: NODE_ENV=test bundle exec rails webpacker:compile
 
     - name: Run tests
-      run: bundle exec rake models
+      run: bundle exec rake
 
     - name: Run Code Analyzer
       run: bundle exec rubocop
