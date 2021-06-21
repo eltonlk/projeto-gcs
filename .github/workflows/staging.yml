@@ -7,7 +7,7 @@ on:
     branches: [ staging ]
 
 jobs:
-  test:
+  docker:
     runs-on: ubuntu-latest
 
     steps:
@@ -24,8 +24,4 @@ jobs:
           ENVIRONMENT=staging
           PORT=8080
         push: true
-        # tags: eltonlk/projeto-gcs:latest
-        repository: eltonlk/projeto-gcs
-        tag_with_ref: true
-        tag_with_sha: true
-        add_git_labels: true
+        tags: eltonlk/projeto-gcs:latest
