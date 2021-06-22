@@ -8,6 +8,9 @@ RUN apt-get update && apt-get install -y apt-utils tzdata
 # Set local timezone
 RUN ln -sf /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
 
+# Install PostgreSQL client (needed for the connection to Google CloudSQL instance)
+RUN apt-get install -y postgresql-client
+
 # Install recent versions of nodejs (lts) and yarn pkg manager
 # Needed to properly pre-compile Rails assets
 RUN (curl -sL https://deb.nodesource.com/setup_lts.x | bash -) && apt-get update && apt-get install -y nodejs
@@ -33,6 +36,13 @@ ENV RAILS_ENV $ENVIRONMENT
 ARG RAILS_MASTER_KEY
 ENV RAILS_MASTER_KEY $RAILS_MASTER_KEY
 
+ARG DATABASE_HOST
+ENV DATABASE_HOST $DATABASE_HOST
+ARG DATABASE_USER
+ENV DATABASE_USER $DATABASE_USER
+ARG DATABASE_PASWWORD
+ENV DATABASE_PASWWORD $DATABASE_PASWWORD
+
 # Install dependencies (Gems installation in local vendor directory)
 RUN gem install bundler
 RUN bundle config set deployment 'true'
@@ -50,7 +60,7 @@ ENV RAILS_LOG_TO_STDOUT=true
 
 # Expose port to the Docker host, so we can access it from the outside.
 ARG PORT
-ENV PORT=$PORT
+ENV PORT $PORT
 
 # Designate the initial sript to run on container startup
 COPY entrypoint.sh /usr/bin/

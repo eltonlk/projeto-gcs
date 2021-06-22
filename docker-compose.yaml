@@ -6,14 +6,15 @@ services:
       context: .
       dockerfile: Dockerfile
       args:
-        ENVIRONMENT: ${ENVIRONMENT}
-        PORT: ${PORT}
+        - ENVIRONMENT=${ENVIRONMENT}
+        - PORT=${PORT}
+        - RAILS_MASTER_KEY=${RAILS_MASTER_KEY}
+        - DATABASE_HOST=${DATABASE_HOST}
+        - DATABASE_USER=${DATABASE_USER}
+        - DATABASE_PASWWORD=${DATABASE_PASWWORD}
     container_name: project_gcs_web
     volumes:
       - web:/usr/src/app/
-    environment:
-      - DATABASE_HOST=db
-      - REDIS_HOST=redis
     ports:
       - ${EXPOSE_PORT}
     stdin_open: true
