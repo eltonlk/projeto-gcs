@@ -2,7 +2,7 @@ name: Staging
 
 on:
   push:
-    branches: [ staging ]
+    branches: [ production ]
 
 jobs:
   docker:
@@ -19,10 +19,10 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         build-args: |
-          ENVIRONMENT=staging
+          ENVIRONMENT=production
           RAILS_MASTER_KEY=${{ secrets.RAILS_MASTER_KEY }}
         push: true
-        tags: eltonlk/projeto-gcs:staging
+        tags: eltonlk/projeto-gcs:latest,eltonlk/projeto-gcs:${{ github.sha }}
 
   deploy:
     runs-on: ubuntu-latest
@@ -35,7 +35,7 @@ jobs:
         username: ${{ secrets.SERVER_USER }}
         password: ${{ secrets.SERVER_PASSWORD }}
         script: |
-          docker stop projeto-gcs-staging
-          docker rm projeto-gcs-staging
-          docker pull eltonlk/projeto-gcs:staging
-          docker run --name projeto-gcs-staging --net=host -e PORT=8080 -e DATABASE_HOST=localhost -e DATABASE_USER=univates -e DATABASE_PASSWORD=123456789 -d eltonlk/projeto-gcs:staging
+          docker stop projeto-gcs-production
+          docker rm projeto-gcs-production
+          docker pull eltonlk/projeto-gcs:latest
+          docker run --name projeto-gcs-production --net=host -e PORT=80 -e DATABASE_HOST=localhost -e DATABASE_USER=univates -e DATABASE_PASSWORD=123456789 -d eltonlk/projeto-gcs:latest
