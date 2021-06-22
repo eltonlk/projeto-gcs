@@ -27,11 +27,23 @@ WORKDIR $APP_FOLDER
 # Copy the main application.
 COPY . $APP_FOLDER
 
+# Configure environment variables
+ARG ENVIRONMENT
+ENV APP_ENV $ENVIRONMENT
+ENV RACK_ENV $ENVIRONMENT
+ENV RAILS_ENV $ENVIRONMENT
+
+ARG RAILS_MASTER_KEY
+ENV RAILS_MASTER_KEY $RAILS_MASTER_KEY
+
 # Install dependencies (Gems installation in local vendor directory)
 RUN gem install bundler
 RUN bundle config set deployment 'true'
 RUN bundle install --without="development test"
 RUN yarn install --check-files
+
+# Pre-compile Rails assets (master key needed)
+bundle exec rake assets:precompile
 
 # For now we don't have a Nginx/Apache frontend so tell the Puma HTTP server to serve static content (e.g. CSS and Javascript files)
 ENV RAILS_SERVE_STATIC_FILES=true
