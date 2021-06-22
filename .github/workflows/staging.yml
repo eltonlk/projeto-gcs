@@ -49,4 +49,4 @@ jobs:
 
 # docker pull eltonlk/projeto-gcs:staging
 
-# docker run --name projeto-gcs-staging --add-host="localhost:192.168.0.1" -e RAILS_ENV=staging -e RAILS_MASTER_KEY=cdc4376fcb0b7b5dced7277a92a97428 -e DATABASE_HOST=192.168.0.1 -e DATABASE_USER=postgres -e DATABASE_PASSWORD=123456789 -p 80:3000 -t eltonlk/projeto-gcs:staging
+# docker run --name projeto-gcs-staging --add-host="localhost:192.168.0.1" -e DATABASE_HOST=192.168.0.1 -e DATABASE_USER=postgres -e DATABASE_PASSWORD=123456789 -p 80:3000 -t eltonlk/projeto-gcs:staging

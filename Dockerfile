@@ -43,7 +43,7 @@ RUN bundle install --without="development test"
 RUN yarn install --check-files
 
 # Pre-compile Rails assets (master key needed)
-bundle exec rake assets:precompile
+RUN bundle exec rake assets:precompile
 
 # For now we don't have a Nginx/Apache frontend so tell the Puma HTTP server to serve static content (e.g. CSS and Javascript files)
 ENV RAILS_SERVE_STATIC_FILES=true
@@ -52,7 +52,7 @@ ENV RAILS_SERVE_STATIC_FILES=true
 ENV RAILS_LOG_TO_STDOUT=true
 
 # Expose port to the Docker host, so we can access it from the outside.
-ENV PORT 3000
+ENV PORT=3000
 
 # Designate the initial sript to run on container startup
 COPY entrypoint.sh /usr/bin/
