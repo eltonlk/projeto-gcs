@@ -27,26 +27,24 @@ jobs:
         tags: eltonlk/projeto-gcs:staging
 
 
-#tags: eltonlk/projeto-gcs:${{ github.sha }}
+#tags: eltonlk/projeto-gcs:latest,eltonlk/projeto-gcs:${{ github.sha }}
 
 
-# deploy:
+
 
 # docker pull eltonlk/projeto-gcs:latest
 
 # docker run --name projeto-gcs -p 8001:8080 -d eltonlk/projeto-gcs:latest
 
 
-#docker build -t projeto-gcs .
-
-#docker run --name projeto-gcs-staging -e RAILS_ENV=staging -e RAILS_MASTER_KEY=cdc4376fcb0b7b5dced7277a92a97428 -e PORT=3000 -p 3000:3000 -t projeto-gcs
+#docker build -t projeto-gcs --build-arg ENVIRONMENT=staging --build-arg RAILS_MASTER_KEY=cdc4376fcb0b7b5dced7277a92a97428 .
 
 
 
 # docker rm projeto-gcs-staging
 
-# docker rmi eltonlk/projeto-gcs:staging
+# ******** docker rmi eltonlk/projeto-gcs:staging
 
 # docker pull eltonlk/projeto-gcs:staging
 
-# docker run --name projeto-gcs-staging --add-host="localhost:192.168.0.1" -e DATABASE_HOST=192.168.0.1 -e DATABASE_USER=postgres -e DATABASE_PASSWORD=123456789 -p 80:3000 -t eltonlk/projeto-gcs:staging
+# docker run --name projeto-gcs-staging --net=host -e PORT=8080 -e DATABASE_HOST=localhost -e DATABASE_USER=univates -e DATABASE_PASSWORD=123456789 -d eltonlk/projeto-gcs:staging

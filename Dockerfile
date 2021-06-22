@@ -51,9 +51,6 @@ ENV RAILS_SERVE_STATIC_FILES=true
 # Redirect Rails log to STDOUT for Cloud Run to capture
 ENV RAILS_LOG_TO_STDOUT=true
 
-# Expose port to the Docker host, so we can access it from the outside.
-ENV PORT=3000
-
 # Designate the initial sript to run on container startup
 COPY entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh
