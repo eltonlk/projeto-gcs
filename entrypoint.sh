@@ -3,6 +3,9 @@ set -e
 
 cd $APP_FOLDER
 
+# Pre-compile Rails assets (master key needed)
+bundle exec rake assets:precompile
+
 # Create the Rails production DB on first run
 bundle exec rake db:create
 

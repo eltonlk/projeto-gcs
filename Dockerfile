@@ -27,30 +27,11 @@ WORKDIR $APP_FOLDER
 # Copy the main application.
 COPY . $APP_FOLDER
 
-# Configure environment variables
-ARG ENVIRONMENT
-ENV APP_ENV $ENVIRONMENT
-ENV RACK_ENV $ENVIRONMENT
-ENV RAILS_ENV $ENVIRONMENT
-
-ARG RAILS_MASTER_KEY
-ENV RAILS_MASTER_KEY $RAILS_MASTER_KEY
-
-ARG DATABASE_HOST
-ENV DATABASE_HOST $DATABASE_HOST
-ARG DATABASE_USER
-ENV DATABASE_USER $DATABASE_USER
-ARG DATABASE_PASWWORD
-ENV DATABASE_PASWWORD $DATABASE_PASWWORD
-
 # Install dependencies (Gems installation in local vendor directory)
 RUN gem install bundler
 RUN bundle config set deployment 'true'
 RUN bundle install --without="development test"
 RUN yarn install --check-files
-
-# Pre-compile Rails assets (master key needed)
-RUN bundle exec rake assets:precompile
 
 # For now we don't have a Nginx/Apache frontend so tell the Puma HTTP server to serve static content (e.g. CSS and Javascript files)
 ENV RAILS_SERVE_STATIC_FILES=true
@@ -59,8 +40,7 @@ ENV RAILS_SERVE_STATIC_FILES=true
 ENV RAILS_LOG_TO_STDOUT=true
 
 # Expose port to the Docker host, so we can access it from the outside.
-ARG PORT
-ENV PORT $PORT
+ENV PORT 3000
 
 # Designate the initial sript to run on container startup
 COPY entrypoint.sh /usr/bin/

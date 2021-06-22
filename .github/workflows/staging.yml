@@ -20,9 +20,27 @@ jobs:
     - name: Build and push
       uses: docker/build-push-action@v2
       with:
-        build-args: |
-          ENVIRONMENT=staging
-          PORT=8080
-          RAILS_MASTER_KEY=${{ secrets.RAILS_MASTER_KEY }}
         push: true
-        tags: eltonlk/projeto-gcs:latest
+        tags: eltonlk/projeto-gcs-staging:latest
+
+# deploy:
+
+# docker pull eltonlk/projeto-gcs:latest
+
+# docker run --name projeto-gcs -p 8001:8080 -d eltonlk/projeto-gcs:latest
+
+
+#docker build -t projeto-gcs .
+
+#docker run --name projeto-gcs-staging -e RAILS_ENV=staging -e RAILS_MASTER_KEY=cdc4376fcb0b7b5dced7277a92a97428 -e PORT=3000 -p 3000:3000 -t projeto-gcs
+
+#docker run --name projeto-gcs-staging --add-host="localhost:192.168.0.1" -e RAILS_ENV=staging -e RAILS_MASTER_KEY=cdc4376fcb0b7b5dced7277a92a97428 -e DATABASE_HOST=192.168.0.1 -e DATABASE_USER=postgres -e DATABASE_PASSWORD=123456789 -e PORT=3000 -p 3000:3000 -t projeto-gcs
+
+
+
+# docker network create -d bridge my-network
+
+#kubectl apply -f ./kubernates/staging.yml
+
+#docker run --name redis -p 6379:6379 -d redis
+#docker run --name postgres -e POSTGRES_PASSWORD=123456789 -p 5432:5432 -d postgres

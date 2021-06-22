@@ -17,8 +17,15 @@ services:
       - web:/usr/src/app/
     ports:
       - ${EXPOSE_PORT}
+    networks:
+      - my-network
     stdin_open: true
     tty: true
 
 volumes:
   web:
+
+
+networks:
+  my-network:
+    external: true
