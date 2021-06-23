@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 2021_06_23_143845) do
 
   create_table "bank_accounts", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_bank_accounts_on_user_id"

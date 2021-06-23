@@ -7,25 +7,20 @@ services:
       dockerfile: Dockerfile
       args:
         - ENVIRONMENT=${ENVIRONMENT}
-        - PORT=${PORT}
         - RAILS_MASTER_KEY=${RAILS_MASTER_KEY}
-        - DATABASE_HOST=${DATABASE_HOST}
-        - DATABASE_USER=${DATABASE_USER}
-        - DATABASE_PASWWORD=${DATABASE_PASWWORD}
     container_name: project_gcs_web
     volumes:
       - web:/usr/src/app/
     ports:
       - ${EXPOSE_PORT}
-    networks:
-      - my-network
+    environment:
+      - DATABASE_HOST=${DATABASE_HOST}
+      - DATABASE_USER=${DATABASE_USER}
+      - DATABASE_PASWWORD=${DATABASE_PASWWORD}
+      - DATABASE_SSLMODE=${DATABASE_SSLMODE}
     stdin_open: true
     tty: true
 
 volumes:
   web:
-
-
-networks:
-  my-network:
-    external: true
+    
