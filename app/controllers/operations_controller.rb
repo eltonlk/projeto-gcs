@@ -4,7 +4,12 @@ class OperationsController < TenantController
   respond_to :html
 
   def index
-    @date = Date.parse(params.fetch(:date, Date.today.to_s))
+    @date = begin
+        Date.parse params[:date]
+    rescue
+      Date.today
+    end
+
     @paid = params.fetch(:paid, false) == 'true'
 
     @operations = Operation.where('due_at between ? and ?', @date.beginning_of_month, @date.end_of_month).where(paid: @paid).all
