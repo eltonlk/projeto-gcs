@@ -1,11 +1,12 @@
-%h1= t '.title'
+= page_title do
+  %h1= t '.title'
+  = button_new new_bank_account_path
 
-= link_to 'New Bank Account', new_bank_account_path
+= display_when_present @bank_accounts do
+  %table.table
+    %thead
+      %tr
+        %th= BankAccount.human_attribute_name :name
+        %th.table-actions
 
-%table.table
-  %thead
-    %tr
-      %th= BankAccount.human_attribute_name :name
-      %th.table-actions
-
-  %tbody= render @bank_accounts
+    %tbody= render @bank_accounts
