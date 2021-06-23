@@ -25,6 +25,7 @@ jobs:
         tags: eltonlk/projeto-gcs:latest,eltonlk/projeto-gcs:${{ github.sha }}
 
   deploy:
+    needs: docker
     runs-on: ubuntu-latest
 
     steps:
@@ -39,4 +40,4 @@ jobs:
           docker stop projeto-gcs-production
           docker rm projeto-gcs-production
           docker pull eltonlk/projeto-gcs:latest
-          docker run --name projeto-gcs-production --net=host -e PORT=80 -e DATABASE_HOST=localhost -e DATABASE_USER=univates -e DATABASE_PASSWORD=123456789 -d eltonlk/projeto-gcs:latest
+          docker run --name projeto-gcs-production -e PORT=80 -e DATABASE_HOST=${{ secrets.DATABASE_HOST }} -e DATABASE_USER=${{ secrets.DATABASE_USER }} -e DATABASE_PASSWORD=${{ secrets.DATABASE_PASSWORD }} -e DATABASE_PORT=${{ secrets.DATABASE_PORT }} -p 80:80 -d eltonlk/projeto-gcs:latest
