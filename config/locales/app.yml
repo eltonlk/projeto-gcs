@@ -9,3 +9,5 @@ pt-BR:
 
     name: Financeiro
     title: Gestor Financeiro
+    title_staging: Gestor Financeiro - Ambiente de Testes
+    staging: Ambiente de Testes

@@ -2,7 +2,7 @@
   .col{ style: 'max-width: 450px;' }
     .card.my-5
       .card-body
-        %h4.card-title.text-center.my-4= t 'app.title'
+        %h4.card-title.text-center.my-4= app_title
 
         = simple_form_for :user, as: resource_name, url: session_path(resource_name) do |f|
           - if flash[:alert].present?

@@ -1,7 +1,11 @@
 - if user_signed_in?
   %nav.navbar.navbar-expand-lg.navbar-dark.bg-primary.mb-3
     .container
-      = link_to t('app.name'), root_path, class: 'navbar-brand'
+      = link_to root_path, class: 'navbar-brand' do
+        = t('app.name')
+
+        - if Rails.env.staging?
+          %small{ style: 'font-size: 0.6em; color: yellow;' }= t 'app.staging'
 
       = button_tag class: 'navbar-toggler', data: { 'bs-toggle': 'collapse', 'bs-target': '#navbarSupportedContent' }, aria: { 'controls': 'navbarSupportedContent', expanded: false, label: 'Toggle navigation' } do
         %span.navbar-toggler-icon
