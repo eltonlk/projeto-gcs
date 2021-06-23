@@ -5,7 +5,9 @@ Rails.application.routes.draw do
     get 'delete', on: :member
   end
 
+  resources :operations, except: [ :show ]
+
   resources :tags, except: [ :show ]
 
-  root to: 'dashboard#index'
+  root to: 'operations#index'
 end

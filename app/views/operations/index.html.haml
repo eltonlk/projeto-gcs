@@ -1,0 +1,50 @@
+= page_title do
+  %h1= t '.title'
+  = button_new new_operation_path
+
+  .btn-group.ms-3{ role: 'group', 'aria-label': 'Navigation' }
+    = link_to '<', operations_path(date: @date.prev_month, paid: @paid), class: 'btn btn-secondary'
+
+    .dropdown.btn-group
+      = button_tag class: "btn btn-secondary dropdown-toggle", id: 'dropdownNavigation', 'data-bs-toggle': 'dropdown', 'aria-expanded': 'false' do
+        = l @date, format: :month
+
+      %ul.dropdown-menu{ 'aria-labelledby': "dropdownNavigation" }
+        %li= link_to t('text.current_month'), operations_path(date: Date.today, paid: @paid), class: 'dropdown-item'
+
+    = link_to '>', operations_path(date: @date.next_month, paid: @paid), class: 'btn btn-secondary'
+
+
+
+%ul.nav.nav-tabs
+  %nav-item= link_to t('simple_form.options.operation.paid.false'), operations_path(date: @date, paid: false), class: "nav-link #{@paid ? '' : 'active'}"
+  %nav-item= link_to t('simple_form.options.operation.paid.true'), operations_path(date: @date, paid: true), class: "nav-link #{@paid ? 'active' : ''}"
+
+
+= display_when_present @operations do
+  %table.table
+    %thead
+      %tr
+        %th= Operation.human_attribute_name :due_at
+        %th= Operation.human_attribute_name :description
+        %th= Operation.human_attribute_name :bank_account
+        %th.text-end= t 'simple_form.options.operation.flow_in.true'
+        %th.text-end= t 'simple_form.options.operation.flow_in.false'
+        %th.table-actions
+
+    %tbody= render @operations
+
+    %tfoot
+      %tr.text-secondary
+        %th{ colspan: 3 }
+          Subtotal
+        %th.text-end= n2c @operations_flow_in_total
+        %th.text-end= n2c @operations_flow_out_total
+        %th
+
+      %tr
+        %th{ colspan: 3 }
+          Total
+        %th.text-end{ colspan: 2 }
+          = n2c @operations_total
+        %th

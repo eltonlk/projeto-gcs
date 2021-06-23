@@ -1,0 +1,8 @@
+pt-BR:
+  operations:
+    edit:
+      title: Alterar Lançamento
+    index:
+      title: Lançamentos
+    new:
+      title: Adicionar Lançamento

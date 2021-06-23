@@ -1,0 +1,11 @@
+%tr[operation]
+  %td= l operation.due_at
+  %td= operation.description
+  %td= operation.bank_account.name
+  %td.text-end
+    = n2c operation.amount if operation.flow_in?
+  %td.text-end
+    = n2c operation.amount if !operation.flow_in?
+  %td.table-actions
+    = link_to_edit edit_operation_path(operation)
+    = link_to_destroy operation_path(operation)

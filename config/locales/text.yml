@@ -2,6 +2,7 @@ pt-BR:
   text:
     cancel: Cancelar
     confirm: Tem certeza?
+    current_month: Mês Atual
     delete: Excluír
     destroy: Excluír
     edit: Alterar

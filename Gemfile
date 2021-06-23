@@ -72,6 +72,9 @@ gem 'simple_form'
 # Responders to dry up your application
 gem 'responders'
 
+# Parsing & Localization
+gem 'i18n_alchemy'
+
 group :development, :test do
   # Security Vulnerabilities
   gem 'brakeman'

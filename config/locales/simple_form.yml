@@ -34,3 +34,11 @@ pt-BR:
     # prompts:
     #   defaults:
     #     age: 'Select your age'
+    options:
+      operation:
+        flow_in:
+          'false': Saída
+          'true': Entrada
+        paid:
+          'false': Em Aberto
+          'true': Pago

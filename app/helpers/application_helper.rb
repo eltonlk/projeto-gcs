@@ -17,7 +17,7 @@ module ApplicationHelper
   end
 
   def page_title &block
-    content_tag :div, class: 'page-title' do
+    content_tag :div, class: 'page-title my-4' do
       capture &block
     end
   end

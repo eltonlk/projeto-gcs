@@ -3,6 +3,14 @@ pt-BR:
     attributes:
       bank_account:
         name: Nome
+      operation:
+        amount: Valor
+        bank_account: Conta Corrente
+        comment: Observação
+        description: Descrição
+        due_at: Vencimento
+        flow_in: Tipo
+        paid: Situação
       tag:
         name: Nome
       user:
@@ -25,6 +33,9 @@ pt-BR:
       bank_account:
         one: Conta Corrente
         other: Contas Corrente
+      operation:
+        one: Lançamento
+        other: Lançamentos
       tag:
         one: Tag
         other: Tags

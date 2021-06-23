@@ -1,0 +1,21 @@
+= simple_form_for operation.localized do |f|
+  = f.error_notification
+
+  = f.input :flow_in, as: :radio_buttons, collection: [ :true, :false ], wrapper: :vertical_collection_inline
+
+  = f.input :description
+
+  .row
+    .col-sm= f.input :amount, as: :currency
+    .col-sm= f.input :due_at, as: :date, html5: true, input_html: { value: operation.due_at }
+
+  .row
+    .col-sm= f.association :bank_account, include_blank: false, prompt: true
+    .col-sm= f.input :paid, as: :radio_buttons, collection: [ :false, :true ], wrapper: :vertical_collection_inline
+
+  = f.association :tags, as: :check_boxes, wrapper: :vertical_collection_inline
+
+  = f.input :comment
+
+
+  = form_actions f, cancel_url: operations_path

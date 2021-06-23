@@ -1,4 +1,4 @@
-class DashboardController < ApplicationController
+class DashboardController < TenantController
 
   def index
     respond_with :dashboard
