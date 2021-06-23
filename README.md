@@ -16,6 +16,6 @@ Gestor Financeiro
 
 ## Server
 
-* Production: http://177.44.248.50
-* Staging: http://177.44.248.50:8080
-* ssh: univates@177.44.248.50
+* Production: http://147.182.131.188/
+* Staging: http://147.182.131.188:8080/
+* ssh: univates@147.182.131.188
