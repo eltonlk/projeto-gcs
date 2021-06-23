@@ -1,1 +1,12 @@
-%h1= t '.title'
+
+.row
+
+.col-sm-6.col-md-4
+  %h6= t '.balance_by_bank_accounts'
+
+  .list-group
+    - @bank_accounts.each do |bank_account|
+      .list-group-item
+        .d-flex.w-100.justify-content-between
+          %p.mb-0= bank_account.name
+          %strong= n2c @balance_by_bank_accounts[bank_account.id].to_f

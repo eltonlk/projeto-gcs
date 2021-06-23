@@ -9,5 +9,5 @@ Rails.application.routes.draw do
 
   resources :tags, except: [ :show ]
 
-  root to: 'operations#index'
+  root to: 'dashboard#index'
 end
