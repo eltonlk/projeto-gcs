@@ -40,4 +40,4 @@ jobs:
           docker stop projeto-gcs-staging
           docker rm projeto-gcs-staging
           docker pull eltonlk/projeto-gcs:staging
-          docker run --name projeto-gcs-staging --net=host -e PORT=8080 -e DATABASE_HOST=${{ secrets.DATABASE_HOST }} -e DATABASE_USER=${{ secrets.DATABASE_USER }} -e DATABASE_PASSWORD=${{ secrets.DATABASE_PASSWORD }} -e DATABASE_PORT=${{ secrets.DATABASE_PORT }} -d eltonlk/projeto-gcs:staging
+          docker run --name projeto-gcs-staging -e PORT=8080 -e DATABASE_HOST=${{ secrets.DATABASE_HOST }} -e DATABASE_USER=${{ secrets.DATABASE_USER }} -e DATABASE_PASSWORD=${{ secrets.DATABASE_PASSWORD }} -e DATABASE_PORT=${{ secrets.DATABASE_PORT }} -p 8080:8080 -d eltonlk/projeto-gcs:staging
