@@ -7,4 +7,4 @@
 
   = f.input :replace_id, collection: bank_accounts_collection(except_ids: @bank_account.id), include_blank: false
 
-  = form_actions f, cancel_url: bank_accounts_path
+  = form_actions f, cancel_url: bank_accounts_path, button_html: { class: 'btn-danger' }, button_text: t('text.destroy')
